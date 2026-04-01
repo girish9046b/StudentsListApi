@@ -1,0 +1,17 @@
+package com.student.app.dao.intf;
+
+import java.util.ArrayList;
+
+import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.ScopedProxyMode;
+import org.springframework.stereotype.Service;
+import org.springframework.web.context.WebApplicationContext;
+
+import com.student.app.model.Student;
+
+@Service
+@Scope(value = WebApplicationContext.SCOPE_REQUEST, proxyMode = ScopedProxyMode.TARGET_CLASS)
+public interface StudentDaoIntf {
+
+	public ArrayList<Student> getAllStudents() throws Exception;
+}
