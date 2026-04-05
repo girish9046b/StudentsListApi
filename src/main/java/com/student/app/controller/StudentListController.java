@@ -12,7 +12,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
+//import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -50,7 +50,8 @@ public class StudentListController {
 	// Constructor for injection (Spring automatically injects ReportDAO here)
 	public StudentListController(Response response, ErrorMessageHandler errorMessageHandler,
 			@Qualifier("studentServicemysql") StudentServiceIntf studentService,
-			HeaderTokenValidator headerTokenValidator) {
+			HeaderTokenValidator headerTokenValidator
+			) {
 		this.response = response;
 		this.errorMessageHandler = errorMessageHandler;
 		this.studentService = studentService;
@@ -75,9 +76,10 @@ public class StudentListController {
 		} catch (NoHandlerFoundException ex) {
 			throw new NoHandlerFoundException("", null, null);
 		} 
-		catch (UsernameNotFoundException ex) {
-			throw new NoHandlerFoundException("", null, null);
-		}catch (Exception e) {
+//		catch (UsernameNotFoundException ex) {
+//			throw new NoHandlerFoundException("", null, null);
+//		}
+		catch (Exception e) {
 			e.printStackTrace();
 			throw new Exception();
 		} finally {
